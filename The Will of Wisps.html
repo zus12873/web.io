@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Will of Wisps </title>
+<link rel="stylesheet" href="page/model - 1.css">
+	<link href="css/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/videojs-playlist-ui.css" />
+    <script src="js/videojs/video.js"></script>
+	<script src="js/videojs-playlist/videojs-playlist.js"></script>
+	<script src="js/videojs-flash/videojs-flash.js" ></script>
+	<script type="text/javascript" src="js/videojs-playlist/videojs-playlist-ui.js" ></script>
+	<script src="lang/zh-CN.js"></script>
+    <style>
+    	/*暂停时显示播放按钮*/
+    	.vjs-paused .vjs-big-play-button,.vjs-paused.vjs-has-started .vjs-big-play-button {
+		    display: block;
+		}
+		
+		/*****START 播放按钮变○圆形 START*****/
+		.video-js .vjs-big-play-button{
+		    font-size: 2.5em;
+		    line-height: 2.3em;
+		    height: 2.5em;
+		    width: 2.5em;
+		    -webkit-border-radius: 2.5em;
+		    -moz-border-radius: 2.5em;
+		    border-radius: 2.5em;
+		    background-color: #73859f;
+		    background-color: rgba(115,133,159,.5);
+		    border-width: 0.15em;
+		    margin-top: -1.25em;
+		    margin-left: -1.75em;
+		}
+		/* 中间的播放箭头 */
+		.vjs-big-play-button .vjs-icon-placeholder {
+		    font-size: 1.63em;
+		}
+		/* 加载圆圈 */
+		.vjs-loading-spinner {
+		    font-size: 2.5em;
+		    width: 2em;
+		    height: 2em;
+		    border-radius: 1em;
+		    margin-top: -1em;
+		    margin-left: -1.5em;
+		}
+		</style>
+  <style>
+  	.player-container{
+	    background:rgba(255,255,255,0.00);
+    	overflow: auto;
+		position: absolute;
+	top:30%;
+	
+	left: 20%;
+	width: 800px;
+    height:500px;
+  	}
+  	.video-js{
+  		float:left;
+  		width: 70% !important;
+  		height: 400px;
+  	}
+  	.vjs-playlist{
+  		float:left;
+  		width: 30%;
+  		height: 400px;
+  	}
+  	.vjs-playlist-item{
+  		border: 1px solid #FFFFFF;
+  	}
+  	.vjs-playlist .vjs-selected{
+  		border: 1px solid #00FF00;
+  	}
+  	.vjs-playlist .vjs-selected img{
+  		opacity: .5;
+  	}
+  </style>
+   <script type="text/javascript">
+   		videojs.options.flash.swf = "js/videojs-flash/video-js.swf";//flash路径，有一些html播放不了的视频，就需要用到flash播放。这一句话要加在在videojs.js引入之后使用
+   </script>
+
+	</head>
+	<body>
+<nav class="top">
+	       <center>
+		<header>
+		<li><a href="Game Ori.html" class="logo">Ori</a></li>
+         <li>
+			   <a href="The Blind Forest.html"> 黑暗森林</a>
+                 <header>
+                            <li><a href="blind forest gi.html">游戏介绍</a></li>
+                            <li><a href="blind forest gb.html">剧情简介</a></li>
+                 </header>
+                    </li>                    
+                    <li>
+                        <a href="The Will of Wisps.html">精灵与萤火意志</a>
+                        <header>
+                            <li><a href="will of wisps gi.html">游戏介绍</a></li>
+                            <li><a href="will of wisps gb.html">剧情简介</a></li>
+                        </header>
+                    </li>        
+		</header>
+					   </center>
+		</nav>
+	
+	<div class="player-container">
+		<video id="example" class="video-js vjs-default-skin vjs-big-play-centered vjs-v7 vjs-user-active" playsinline webkit-playsinline controls preload="auto" width="100%" height="100%" 
+	  		data-setup='{"techOrder": ["html5","flash"]}'>
+		</video>
+		 <div class="vjs-playlist playlist-container">
+	      <!--
+	        The contents of this element will be filled based on the
+	        currently loaded playlist
+	      -->
+	    </div>
+    </div>
+</body>
+<script type="text/javascript">
+	var player = videojs('example');
+ 
+	player.playlist([{
+	  name:'1',//视频标题
+	  description:'Explore the depths of our planet\'s oceans.',//视频描述
+	  duration:52,//视频总时长，单位秒(s)
+	  sources: [{//视频资源地址以及视频的MIME类型
+	    src: 'https://media.st.dl.pinyuncloud.com/steam/apps/256779902/movie_max.mp4?t=1585866497',
+	    type: 'video/mp4'
+	  }],
+	  //视频封面地址
+	  poster:'https://media.st.dl.pinyuncloud.com/steam/apps/256779902/movie.293x165.jpg?t=1585866497',
+	  //右侧视频播放列表的图片
+	  thumbnail: [
+	  	{//默认图片
+          srcset:'https://media.st.dl.pinyuncloud.com/steam/apps/256779902/movie.293x165.jpg?t=1585866497',
+          type: 'image/jpeg',
+          media: '(min-width: 400px;)'
+        },
+	  	{//实际视频缩略图图片
+	  		src:'https://media.st.dl.pinyuncloud.com/steam/apps/256779902/movie.293x165.jpg?t=1585866497'
+	  	}
+  	  ]
+	}, {
+	  name:'2',//视频标题
+	  description:'Explore the depths of our planet\'s oceans.',//视频描述
+	  duration:734,//视频总时长，单位秒(s)
+	  sources: [{//视频资源地址以及视频的MIME类型
+	    src:'https://media.st.dl.pinyuncloud.com/steam/apps/256769940/movie_max.mp4?t=1576271885',
+	    type: 'video/mp4'
+	  }],
+	  //视频封面地址
+	  poster:'https://media.st.dl.pinyuncloud.com/steam/apps/256769940/movie.293x165.jpg?t=1576271885',
+	  
+	  thumbnail: [
+	  	{//默认图片
+          srcset: 'https://media.st.dl.pinyuncloud.com/steam/apps/256769940/movie.293x165.jpg?t=1576271885',
+          type: 'image/jpeg',
+          media: '(min-width: 400px;)'
+        },
+	  	{//实际视频缩略图图片
+	  		src:'https://media.st.dl.pinyuncloud.com/steam/apps/256769940/movie.293x165.jpg?t=1576271885'
+	  	}
+  	  ]
+	}]);
+	 
+	player.playlistUi();
+</script>
+		
+
+</html>
