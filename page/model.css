@@ -76,7 +76,9 @@ body
     display: block;
 }
 body{
-    background:url("blind forest2.png");
+  
+	background:url("blind forest2.png")no-repeat;
+	background-size:cover;
 }
 .text{
 	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif" ;
