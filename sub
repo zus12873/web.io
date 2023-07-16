@@ -28,6 +28,27 @@ secret: ''
 
 
 proxies:
+  - name: "hknat-vm"
+    type: vmess
+    server: hit.huanmeng.me
+    port: 40764
+    uuid: d6901473-1d14-46d2-9679-cd1f04528473
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    # fingerprint: xxxx
+    # client-fingerprint: chrome    # Available: "chrome","firefox","safari","ios","random", currently only support TLS transport in TCP/GRPC/WS/HTTP for VLESS/Vmess and trojan.
+    # skip-cert-verify: true
+    # servername: example.com # priority over wss host
+    network: ws
+    ws-opts:
+      path: /cris
+    #  headers:
+    #     Host: v2ray.com
+    #   max-early-data: 2048
+    #   early-data-header-name: Sec-WebSocket-Protocol
+
   - name: "stream"
     type: vless
     server: uk.huanmeng.me
@@ -117,6 +138,7 @@ proxy-groups:
   proxies: 
     - 'stream'
     - 'Hys-hkp'
+    - 'hknat-vm'
 -
   name: Proxy
   type: select
@@ -126,6 +148,7 @@ proxy-groups:
     - '链式代理'
     - 'stream'
     - 'Hys-hkp'
+    - 'hknat-vm'
 -   
   name: Domestic
   type: select
